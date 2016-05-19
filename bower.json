@@ -1,21 +1,21 @@
 {
   "name": "scalejs.noticeboard",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "homepage": "",
-  "authors": [
-  ],
+  "authors": [],
   "description": "",
   "main": [
-    "dist/scalejs.noticeboard.min.js"
+    "dist/scalejs.noticeboard.js"
   ],
   "ignore": [
-    "*", "!dist/*.js"
+    "*",
+    "!dist/*.js"
   ],
   "dependencies": {
-    "scalejs": "lisovin/scalejs"
+    "scalejs": "lisovin/scalejs",
+    "knockout": "~3.4.0"
   },
   "devDependencies": {
     "requirejs": "latest"
   }
 }
-
