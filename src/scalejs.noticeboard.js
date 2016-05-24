@@ -1,5 +1,5 @@
 define([
-    'scalejs!core',
+    'scalejs.core',
     'knockout'
 ], function (
     core,

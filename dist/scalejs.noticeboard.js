@@ -1,6 +1,5 @@
-
 define('scalejs.noticeboard',[
-    'scalejs!core',
+    'scalejs.core',
     'knockout'
 ], function (
     core,
