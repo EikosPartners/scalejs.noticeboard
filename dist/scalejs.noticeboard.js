@@ -9,6 +9,10 @@ var _knockout = require('knockout');
 
 var _knockout2 = _interopRequireDefault(_knockout);
 
+var _scalejs = require('scalejs.core');
+
+var _scalejs2 = _interopRequireDefault(_scalejs);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var observable = _knockout2.default.observable,
@@ -73,7 +77,7 @@ function noticeboard() {
     };
 }
 
-core.registerExtension({
+_scalejs2.default.registerExtension({
     noticeboard: {
         createNewNoticeboard: noticeboard,
         global: noticeboard()

@@ -1,5 +1,5 @@
 import ko from 'knockout';
-
+import core from 'scalejs.core';
 var observable = ko.observable,
     computed = ko.computed,
     global = noticeboard();

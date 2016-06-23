@@ -1,7 +1,7 @@
 {
   "name": "scalejs.noticeboard",
   "main": "dist/scalejs.noticeboard",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "scripts": {
     "build" : "babel src --presets babel-preset-es2015 --out-dir dist --source-maps"
   },
