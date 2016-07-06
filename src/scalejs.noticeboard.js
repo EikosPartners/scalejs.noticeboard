@@ -90,6 +90,16 @@ export {
     dictionary,
     noticeboard as createNewNoticeboard
 }
+export default {
+    setValue,
+    getValue,
+    get,
+    set,
+    subscribe,
+    remove,
+    dictionary,
+    createNewNoticeboard : noticeboard
+}
 
 
 

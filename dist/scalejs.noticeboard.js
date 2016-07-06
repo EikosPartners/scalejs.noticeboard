@@ -99,4 +99,14 @@ exports.subscribe = subscribe;
 exports.remove = remove;
 exports.dictionary = dictionary;
 exports.createNewNoticeboard = noticeboard;
+exports.default = {
+    setValue: setValue,
+    getValue: getValue,
+    get: get,
+    set: set,
+    subscribe: subscribe,
+    remove: remove,
+    dictionary: dictionary,
+    createNewNoticeboard: noticeboard
+};
 //# sourceMappingURL=scalejs.noticeboard.js.map
