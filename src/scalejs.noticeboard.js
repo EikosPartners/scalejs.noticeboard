@@ -18,20 +18,32 @@ function noticeboard() {
             dictionary.valueHasMutated();
         }
     }
-
+    // notify when key becomes available
+    // notify when value changes
     function getValue(key) {
-        var item = dictionary()[key];
-        if (item) {
-            return item();
+        var dict = dictionary.peek();
+
+        if (dict.hasOwnProperty(key)) {
+            let item = dict[key];
+            return item;
         }
+        return dictionary()[key]; // returns undefined
     }
 
     function subscribe(key, callback) {
         var sub = computed(function () {
-            return getValue(key);
-        });
+                return getValue(key);
+            }),
+            oldValue;
+
+        sub.subscribe(function (val) {
+            oldValue = val;
+        }, null, 'beforeChange');
+
         sub.subscribe(function (newValue) {
-            callback(newValue);
+            if(newValue !== oldValue) {
+                callback(newValue);
+            }
         });
         callback(sub()); // When initially called
         subs[key] = subs[key] || [];

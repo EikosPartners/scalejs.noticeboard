@@ -33,20 +33,32 @@ function noticeboard() {
             dictionary.valueHasMutated();
         }
     }
-
+    // notify when key becomes available
+    // notify when value changes
     function getValue(key) {
-        var item = dictionary()[key];
-        if (item) {
-            return item();
+        var dict = dictionary.peek();
+
+        if (dict.hasOwnProperty(key)) {
+            var item = dict[key];
+            return item;
         }
+        return dictionary()[key]; // returns undefined
     }
 
     function subscribe(key, callback) {
         var sub = computed(function () {
             return getValue(key);
-        });
+        }),
+            oldValue;
+
+        sub.subscribe(function (val) {
+            oldValue = val;
+        }, null, 'beforeChange');
+
         sub.subscribe(function (newValue) {
-            callback(newValue);
+            if (newValue !== oldValue) {
+                callback(newValue);
+            }
         });
         callback(sub()); // When initially called
         subs[key] = subs[key] || [];
@@ -84,13 +96,13 @@ _scalejs2.default.registerExtension({
     }
 });
 
-var setValue = global.setValue;
-var getValue = global.getValue;
-var get = global.get;
-var set = global.set;
-var subscribe = global.subscribe;
-var remove = global.remove;
-var dictionary = global.dictionary;
+var setValue = global.setValue,
+    getValue = global.getValue,
+    get = global.get,
+    set = global.set,
+    subscribe = global.subscribe,
+    remove = global.remove,
+    dictionary = global.dictionary;
 exports.setValue = setValue;
 exports.getValue = getValue;
 exports.get = get;
