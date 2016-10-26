@@ -40,7 +40,7 @@ function noticeboard() {
 
         if (dict.hasOwnProperty(key)) {
             var item = dict[key];
-            return item;
+            return item();
         }
         return dictionary()[key]; // returns undefined
     }

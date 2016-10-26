@@ -25,7 +25,7 @@ function noticeboard() {
 
         if (dict.hasOwnProperty(key)) {
             let item = dict[key];
-            return item;
+            return item();
         }
         return dictionary()[key]; // returns undefined
     }
